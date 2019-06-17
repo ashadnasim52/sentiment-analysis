@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fill the form</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+
+
+
+<body class="grid-2">
+
+
+    <div class="flex card border-primary block mt-10 fnt">
+        <form method="post" class="form-group flex  card-body">
+            <label class="card-title mb-15" for="textarea">Enter your text/blog</label>
+            <textarea class="form-control mb-15" name="texts" id="textarea" oninput='runAnalysis(this.value)' cols="30" rows="10"></textarea>
+            <button class="btn btn-secondary" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="flex-2">
+
+        <body class="flex" style="height:100%">
+            <p id="message" class="alert-info alert">
+                Start typing in blog area and see real-time sentimental analysis
+            </p>
+            <div class="grid-3">
+                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Score is :-</div>
+                    <div class="card-body">
+                        <p class="card-text " id="score">
+                        </p>
+                    </div>
+                </div>
+                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header">comparative is :-</div>
+                    <div class="card-body">
+                        <p class="card-text" id="comparative">
+                        </p>
+                    </div>
+                </div>
+                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Tokens in submitted post is :-</div>
+                    <div class="card-body">
+                        <p class="card-text" id="tokens">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Words in submitted post is :-</div>
+                    <div class="card-body">
+                        <p class="card-text" id="words">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Positive words in submitted post is :-</div>
+                    <div class="card-body">
+                        <p class="card-text" id="positive-words">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Negative in submitted post is :-</div>
+                    <div class="card-body">
+                        <p class="card-text" id="negative-words">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        // alert('alt')
+        let socket = io("http://localhost:8000");
+        let textarea=document.querySelector('#textarea');
+        runAnalysis= (v) =>{
+            socket.emit('runanaysis',v)
+
+
+        }
+        socket.on('result',(result)=>{
+            console.log('socket result',result);
+            //getting final result
+            //just need to render it
+           
+            document.getElementById('score').innerText=result.score
+            document.getElementById('comparative').innerText=result.comparative
+            document.getElementById('tokens').innerText=result.tokens
+            document.getElementById('words').innerText=result.words
+            document.getElementById('positive-words').innerText=result.positive
+            document.getElementById('negative-words').innerText=result.negative
+            //
+            if ((result.comparative<-5)||(result.score<0)||(result.negative.length>3)) {
+                    document.getElementById('message').innerText=`Words are BELOW quality standard, please remove:- ${result.negative}`
+
+            } else {
+                document.getElementById('message').innerText='Words are above quality standard'
+
+            }
+            
+            
+        })
+        
+        socket.on('connect', () => {
+            console.log('connected');
+
+        })
+    </script>
+
+</body>
+
+</html>
