@@ -1,6 +1,6 @@
 # sentiment-analysis
 
-![sentiment analysis](/images/sentiment.gif)
+![sentiment analysis](/images/sentimental.gif)
 
 Sentiment Analysis api for feelin app
 
