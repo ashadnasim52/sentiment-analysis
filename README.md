@@ -1,12 +1,12 @@
 # sentiment-analysis
 
-![sentiment analysis](./images/sentiment.gif)
+![sentiment analysis](/images/sentiment.gif)
 
 Sentiment Analysis api for feelin app
 
 ## DESCRIPTION
 
-![sentiment analysis](./images/sentimenatalAnalysis)
+![sentiment analysis](/images/sentimenatalAnalysis.png)
 
 This project is for sentiment analysis of post/blog submitted by user and then analysising the post and giving it rating . If all goes right then the post/blog submitted by the user will store in mongoDB database otherwise it will show the user to remove abussive words and then resubmit it .
 
@@ -16,8 +16,12 @@ This project is for sentiment analysis of post/blog submitted by user and then a
 
 ### Frontend
 
-Go to http://127.0.0.1:8800/api/form/submit
+Go to http://127.0.0.1:8800/sentimental
 it will throw you a basic form write your post and submit it
+
+This project also uses socket.io show it will show the realtime update of the score and words.
+
+All you can submit your post.
 
 If all goes write (means post is good ) then it will stored in database and give us the response saved. Otherwise it will show the harmful words
 
