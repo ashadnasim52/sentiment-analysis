@@ -16,7 +16,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "mongoose": "^5.7.5",
     "sentiment": "^5.0.1",
     "socket.io": "^2.4.0"
