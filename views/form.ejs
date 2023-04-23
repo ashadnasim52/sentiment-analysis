@@ -13,64 +13,64 @@
 
 
 
-<body class="grid-2">
+<body class="grid-2 bg-white">
 
 
-    <div class="flex card border-primary block mt-10 fnt">
+    <div class="flex card border-dark block mt-10 fnt bg-white text-dark">
         <form method="post" class="form-group flex  card-body">
             <label class="card-title mb-15" for="textarea">Enter your text/blog</label>
-            <textarea class="form-control mb-15" name="texts" id="textarea" oninput='runAnalysis(this.value)' cols="30" rows="10"></textarea>
-            <button class="btn btn-secondary" type="submit">Submit</button>
+            <textarea class="form-control mb-15 border-dark" name="texts" id="textarea" oninput='runAnalysis(this.value)' cols="30" rows="10"></textarea>
+            <button class="btn btn-secondary bg-white text-dark border-dark" type="submit">Submit</button>
         </form>
     </div>
 
     <div class="flex-2">
 
         <body class="flex" style="height:100%">
-            <p id="message" class="alert-info alert">
+            <p id="message" class="alert-info alert text-dark bg-white" >
                 Start typing in blog area and see real-time sentimental analysis
             </p>
             <div class="grid-3">
-                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                    <div class="card-header">Score is :-</div>
+                <div class="card text-dark bg-white mb-3" style="max-width: 20rem;">
+                    <div class="card-header bg-white">Score is :-</div>
                     <div class="card-body">
                         <p class="card-text " id="score">
                         </p>
                     </div>
                 </div>
-                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                    <div class="card-header">comparative is :-</div>
+                <div class="card text-dark bg-white mb-3" style="max-width: 20rem;">
+                    <div class="card-header bg-white">comparative is :-</div>
                     <div class="card-body">
                         <p class="card-text" id="comparative">
                         </p>
                     </div>
                 </div>
-                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                    <div class="card-header">Tokens in submitted post is :-</div>
+                <div class="card text-dark bg-white mb-3" style="max-width: 20rem;">
+                    <div class="card-header bg-white">Tokens in submitted post is :-</div>
                     <div class="card-body">
                         <p class="card-text" id="tokens">
                         </p>
                     </div>
                 </div>
 
-                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                    <div class="card-header">Words in submitted post is :-</div>
+                <div class="card text-dark bg-white mb-3" style="max-width: 20rem;">
+                    <div class="card-header bg-white">Words in submitted post is :-</div>
                     <div class="card-body">
                         <p class="card-text" id="words">
                         </p>
                     </div>
                 </div>
 
-                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                    <div class="card-header">Positive words in submitted post is :-</div>
+                <div class="card text-dark bg-white mb-3" style="max-width: 20rem;">
+                    <div class="card-header bg-white">Positive words in submitted post is :-</div>
                     <div class="card-body">
                         <p class="card-text" id="positive-words">
                         </p>
                     </div>
                 </div>
 
-                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                    <div class="card-header">Negative in submitted post is :-</div>
+                <div class="card text-dark bg-white mb-3" style="max-width: 20rem;">
+                    <div class="card-header bg-white">Negative in submitted post is :-</div>
                     <div class="card-body">
                         <p class="card-text" id="negative-words">
                         </p>
